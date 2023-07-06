@@ -1,0 +1,1 @@
+- https://discourse.onlinedegree.iitm.ac.in/t/different-r2-scores/79331 go through this

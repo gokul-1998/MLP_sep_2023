@@ -41,3 +41,15 @@ print(X_transformed)
 
 [[1. 1. 2. 2.]]
 ```
+![Alt text](image.png)
+
+- l2 is ridge and l1 is lasso regression
+
+![Alt text](image-1.png)
+
+![Alt text](image-2.png)
+
+![Alt text](image-3.png)
+- 1 - l1_ratio=l2_ratio
+
+![Alt text](image-4.png)
