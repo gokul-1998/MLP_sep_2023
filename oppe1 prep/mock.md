@@ -159,3 +159,178 @@ print(X_train.shape)
 - Ans : (16512, 8)
 
 
+13)
+```
+# Import the California Housing dataset. 
+#   Load the features and labels as numpy array. Split the data into training and test data in 4:1 proportion. What will be the size of training features?
+
+from sklearn.datasets import fetch_california_housing
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+cal_housing = fetch_california_housing()
+X = cal_housing.data
+y = cal_housing.target
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+print(X_train.shape)
+
+# Use the strategy 'mean' to predict all the labels. Calculate the coefficient of determination (R2) for the prediction.
+
+from sklearn.dummy import DummyRegressor
+from sklearn.metrics import r2_score
+
+dummy = DummyRegressor(strategy='mean')
+dummy.fit(X_train, y_train)
+y_pred = dummy.predict(X_test)
+print(r2_score(y_test, y_pred))
+```
+
+- Answer differs for every run, so find out why and how to get the desred answer
+
+14)
+```
+# Import the California Housing dataset. 
+#   Load the features and labels as numpy array. Split the data into training and test data in 4:1 proportion. What will be the size of training features?
+
+from sklearn.datasets import fetch_california_housing
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+cal_housing = fetch_california_housing()
+X = cal_housing.data
+y = cal_housing.target
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+print(X_train.shape)
+
+# Fit the training dataset using Iterative Optimization, i.e., SGDRegressor (Keep all the parameters default) after scaling the features using MinMaxscalar.\
+
+#   Calculate the mean absolute error for training data.
+
+from sklearn.linear_model import SGDRegressor
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import mean_absolute_error
+
+scaler = MinMaxScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+sgd = SGDRegressor()
+sgd.fit(X_train_scaled, y_train)
+
+y_pred = sgd.predict(X_train_scaled)
+print(mean_absolute_error(y_train, y_pred))
+
+```
+- Ans : 0.5601
+
+15)
+```
+# Import the California Housing dataset. 
+#   Load the features and labels as numpy array. Split the data into training and test data in 4:1 proportion. What will be the size of training features?
+
+from sklearn.datasets import fetch_california_housing
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+cal_housing = fetch_california_housing()
+X = cal_housing.data
+y = cal_housing.target
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+print(X_train.shape)
+
+# Fit the training dataset using Iterative Optimization, i.e., SGDRegressor (Keep all the parameters default) after scaling the features using MinMaxscalar.\
+
+#   Calculate the mean absolute error for training data.
+
+from sklearn.linear_model import SGDRegressor
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import mean_absolute_error
+
+scaler = MinMaxScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+sgd = SGDRegressor()
+sgd.fit(X_train_scaled, y_train)
+
+y_pred = sgd.predict(X_train_scaled)
+print(mean_absolute_error(y_train, y_pred))
+# Calculate the mean absolute error for test data.
+
+y_pred = sgd.predict(X_test_scaled)
+print(mean_absolute_error(y_test, y_pred))
+
+```
+- Ans : 0.5601 0.5601
+
+16)
+```
+# Import the California Housing dataset. 
+#   Load the features and labels as numpy array. Split the data into training and test data in 4:1 proportion. What will be the size of training features?
+
+from sklearn.datasets import fetch_california_housing
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+cal_housing = fetch_california_housing()
+X = cal_housing.data
+y = cal_housing.target
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+print(X_train.shape)
+
+# Fit the training dataset using Iterative Optimization, i.e., SGDRegressor (Keep all the parameters default) after scaling the features using MinMaxscalar.\
+
+#   Calculate the mean absolute error for training data.
+
+from sklearn.linear_model import SGDRegressor
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import mean_absolute_error
+
+scaler = MinMaxScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+sgd = SGDRegressor()
+sgd.fit(X_train_scaled, y_train)
+
+y_pred = sgd.predict(X_train_scaled)
+# print(mean_absolute_error(y_train, y_pred))
+# Calculate the mean absolute error for test data.
+
+y_pred = sgd.predict(X_test_scaled)
+# print(mean_absolute_error(y_test, y_pred))
+
+# print the scores that are calculated using 5 fold cross validation using LinearRegression on entire dataset.
+
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import cross_val_score
+
+lr = LinearRegression()
+scores = cross_val_score(lr, X, y, cv=5)
+print(scores)
+
+```
+- array([0.54866323, 0.46820691, 0.55078434, 0.53698703, 0.66051406])
+
+17)
+```
+# Import the diabetes dataset from sklearn and check how many samples are there in the dataset?
+
+from sklearn import datasets
+import numpy as np
+import pandas as pd
+
+diabetes = datasets.load_diabetes()
+print(diabetes.data.shape)
+
+```
+
+- Ans : (442, 10)
