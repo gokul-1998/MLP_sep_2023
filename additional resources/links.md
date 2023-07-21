@@ -6,3 +6,6 @@
 
 - previous oppe solution colab
     - https://colab.research.google.com/drive/1HR5hYHSsKVfXW2uUwuTs4Z5jAsMRG5-X?usp=sharing
+
+- mock my solutions
+    - 
