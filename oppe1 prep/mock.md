@@ -130,11 +130,11 @@ print(X_poly.shape)
 # Select features according to 10 percentile of the highest scores What is the shape of the feature matrix after feature selection?
 
 from sklearn.datasets import fetch_california_housing
+X,y=fetch_california_housing(return_X_y=True,as_frame=True)
 from sklearn.feature_selection import SelectPercentile, mutual_info_regression
-
-X, y = fetch_california_housing(return_X_y=True, as_frame=True)
-X_new = SelectPercentile(mutual_info_regression, percentile=10).fit_transform(X, y)
-print(X_new.shape)
+sp=SelectPercentile(mutual_info_regression,percentile=10)
+new=sp.fit_transform(X,y)
+new.shape
 ```
 - Ans : (20640, 1)
 
@@ -334,3 +334,59 @@ print(diabetes.data.shape)
 ```
 
 - Ans : (442, 10)
+
+18)
+```
+
+from sklearn.datasets import load_diabetes
+
+diabetes = load_diabetes()
+# Step-1: Use Standard scaler to preprocess the data.
+#   Step-2: Split the dataset in such a way that 20% data is taken for test cases.(set random state=10)
+#   Step-3: Use the LinearRegression() estimator to predict the output.
+# What is the R 2  score you got using LinearRegression estimator on test data.
+
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+
+scaler = StandardScaler()
+X = scaler.fit_transform(diabetes.data)
+y = diabetes.target
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=10)
+lr = LinearRegression()
+lr.fit(X_train, y_train)
+y_pred = lr.predict(X_test)
+print(r2_score(y_test, y_pred))
+
+```
+
+- Ans : 0.5341988244945842
+
+19)
+
+```
+
+from sklearn.datasets import load_diabetes
+
+diabetes = load_diabetes()
+# Step-1: Use Standard scaler to preprocess the data.
+#   Step-2: Split the dataset in such a way that 20% data is taken for test cases.(set random state=10)
+#   Step-3: Use the LinearRegression() estimator to predict the output.
+# What is the R 2  score you got using LinearRegression estimator on test data.
+# What is the value of cofficient associated with variable "s3"?
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+
+scaler = StandardScaler()
+X = scaler.fit_transform(diabetes.data)
+y = diabetes.target
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=10)
+lr = LinearRegression()
+lr.fit(X_train, y_train)
+y_pred = lr.predict(X_test)
+print(lr.coef_[diabetes.feature_names.index('s3')])
+```
