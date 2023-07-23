@@ -6,3 +6,7 @@ Therefore, feature scaling is not necessary when using Decision Trees, and you c
 
 ![](2023-07-21-22-57-39.png)
 - NO
+
+![](2023-07-21-23-00-02.png)
+
+ ![](2023-07-21-23-01-12.png)

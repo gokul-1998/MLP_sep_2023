@@ -32,3 +32,30 @@ C) Not necessarily.
 `max_depth`: This parameter controls the maximum depth of the decision tree. Limiting the depth of the tree can prevent it from becoming too complex and overfitting the training data.
 
 `min_samples_leaf`: This parameter sets the minimum number of samples required to be in a leaf node. Increasing this value can prevent the tree from creating leaves with very few samples, which can help in reducing overfitting.
+
+`The criterion parameter` (e.g., "gini" or "entropy") determines the function used to measure the quality of a split. Changing the criterion does not directly control overfitting but may influence the decision tree's behavior in terms of feature selection and tree growth. The primary parameters to focus on for handling overfitting are min_samples_split, max_depth, and min_samples_leaf.
+
+![](2023-07-21-22-24-25.png)
+
+![](2023-07-21-22-24-49.png)
+![](2023-07-21-22-44-53.png)
+In a Decision Tree, if a feature is of continuous form (numeric), it is possible to use the same feature variable more than once along different paths in the tree. This is because continuous features can have multiple possible split points, allowing the tree to create different branches with different split thresholds.
+
+For example, if a Decision Tree splits the data based on Feature A > 5 at one node and later splits again based on Feature A > 10 at a different node, it is using the same continuous feature (Feature A) twice in different contexts.
+
+On the other hand, if a feature is of discrete form (categorical), it cannot be used more than once along the same path in the tree. Once a categorical feature is used for splitting, it is no longer available for further splits along that path.
+
+So, to clarify:
+
+For continuous features, it is possible to use the feature variable more than once in a Decision Tree, as long as it creates different split points at different nodes.
+For discrete features, a feature variable can only be used once along a particular path in the tree.
+
+![](2023-07-21-22-33-14.png)
+    - White box models are models that are interpretable by humans. They are also known as glass box models. Decision trees are white box models because they can be visualized and interpreted by humans. In contrast, black box models are models that are not interpretable by humans. Neural networks are an example of black box models because they are very difficult to visualize and interpret.
+    - Black box models are models that are not interpretable by humans. They are also known as glass box models. Decision trees are white box models because they can be visualized and interpreted by humans. In contrast, black box models are models that are not interpretable by humans. Neural networks are an example of black box models because they are very difficult to visualize and interpret.
+
+![](2023-07-21-22-35-55.png)
+
+- Why do we use `negative mean squared error ` as scoring parameter?
+    - The scoring parameter is used to measure the performance of the model. For regression models, the scoring parameter is usually set to mean squared error (MSE). The MSE is calculated by taking the average of the squared errors between the predicted and actual values. The squared error is calculated by subtracting the actual value from the predicted value and squaring the result. The MSE is a measure of how close a fitted line is to data points. A lower MSE indicates a better fit.
+    
