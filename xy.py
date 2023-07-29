@@ -1,10 +1,11 @@
+from sklearn.linear_model import Perceptron
+X=[(0,1),(0,2),(2,0),(3.5,3.5)]
+y=[1,2,3,4]
+clf=Perceptron()
+clf.fit(X,y)
+print(clf.score(X,y))
 
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import RandomizedSearchCV
 
+# ans = 1.0
 
-rcf= RandomForestClassifier()
-params_distributions = ['n_estimators': [50,100, 150],
-                        'max_depth': [5,10,15],
-                        'min_samples_leaf': [2,4,6]]
-random_search = RandomizedSearchCV(rcf, param_distributions=params_distributions, cv=5)
+- this is because the perceptron is a linear classifier, and the data is linearly separable

@@ -1,11 +1,14 @@
 
 ![](2023-07-24-01-39-53.png)
-
+![](2023-07-30-02-17-54.png)
+# HOW??
 ![](2023-07-24-01-40-35.png)
 
 ![](2023-07-24-01-40-55.png)
+-  fraction of samples = subsample
 
 ![](2023-07-24-01-41-42.png)
+- most frequent will take the mode of the values in the data and predict it as the output for any input value
 
 ![](2023-07-24-01-42-17.png)
 
